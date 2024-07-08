@@ -10,7 +10,7 @@ export default function Signup() {
     const handleSubmit = (event) => {
       let inputObj = { username, email, password };
       console.log(inputObj);
-      let url = "http://localhost:4000/users/createuser";
+      let url = "https://crud-backend-final.onrender.com/users/createuser";
     axios
       .post(url, inputObj)
       .then((res) => { 

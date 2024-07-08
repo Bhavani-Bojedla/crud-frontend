@@ -6,7 +6,7 @@ export default function View() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:4000/users/getusers")
+      .get("https://crud-backend-final.onrender.com/users/getusers")
       .then((res) => {
         setUsers(res.data);
       })
@@ -15,7 +15,7 @@ export default function View() {
       });
   }, []);
   const deleteData=(id)=>{
-     axios.delete("http://localhost:4000/users/deleteUser/"+id).then(res=>{
+     axios.delete("https://crud-backend-final.onrender.com/users/deleteUser/"+id).then(res=>{
       console.log(res.data);
       if(res.status===200){
         alert("deleted");
@@ -41,14 +41,6 @@ export default function View() {
               deleteData(user._id)
             }}>delete</button>
             <button>Update</button>
-            <Link to="/singleuser">
-            {/* <button onClick={()=>{
-              axios.get("http://localhost/users/getsingleuser/"+user.id)
-              .then(res=>{console.log(res)})
-              .catch(e=>{console.log(e)})
-
-            }}>view user</button> */}
-            </Link>
           </td>
         </tr>
       );
